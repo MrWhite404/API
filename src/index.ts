@@ -34,6 +34,16 @@ app.get('/api', (req: Request, res: Response) => {
     })
 })
 
+app.get('/api-v2', (req: Request, res: Response) => {
+    console.log('hi');
+    
+    return res.status(200).json({
+        status: 'OK',
+        version: ENV.NPM_VERSION,
+        message: 'server is up and running...'
+    })
+})
+
 app.use('*', (req: Request, res: Response) => {
     return res.sendStatus(403)
 })
